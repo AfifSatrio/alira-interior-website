@@ -1,3 +1,4 @@
+import Link from "next/link"
 import ProyekPreview from "./ProyekPreview"
 
 const Hero = () => {
@@ -14,9 +15,9 @@ const Hero = () => {
                 </p>
             </div>
             <ProyekPreview />
-            <button className="mt-8 px-10 py-3 bg-white text-black rounded-full font-poppins font-bold hover:bg-black hover:text-white transition duration-300">
+            <Link className="mt-8 px-10 py-3 bg-white text-black rounded-full font-poppins font-bold hover:bg-black hover:text-white transition duration-300 cursor-pointer" href={"/portfolio"}>
             Lihat Semua Proyek
-            </button>
+            </Link>
         </div>
     </div>
   )

@@ -3,6 +3,7 @@
 @theme {
   --font-dm-serif: var(--font-dm-serif);
   --font-poppins: var(--font-poppins);
+  --color-primary: #CEAB93;
 }
 
 @utility font-dm-serif {
