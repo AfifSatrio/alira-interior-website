@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Serif_Display, Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/header/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dm_serif = DM_Serif_Display({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-dm-serif",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -25,8 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${dm_serif.variable} ${poppins.variable} antialiased`}
       >
+      <Navbar />
         {children}
       </body>
     </html>
