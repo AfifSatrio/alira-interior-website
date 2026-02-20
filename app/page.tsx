@@ -3,7 +3,7 @@ import Jasa from "@/components/jasa-section/Jasa"
 import ProcessSection from "@/components/process-section/ProcessSection"
 import ProjectSection from "@/components/project-section/ProjectSection"
 import ValueSection from "@/components/value-section/ValueSection"
-import AliraClient from "@/components/client-section/AliraClient"
+import ClientSection from "@/components/client-section/ClientSection"
 
 const page = () => {
   return (
@@ -13,7 +13,7 @@ const page = () => {
       <ProjectSection />
       <ValueSection />
       <ProcessSection />
-      <AliraClient />
+      <ClientSection />
     </div>
   )
 }

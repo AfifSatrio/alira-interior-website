@@ -30,3 +30,14 @@ export const processSteps = [
     {id: 5, title: "Penawaran Harga",image:"/bg/bg-1.webp", desc: "Penawaran harga akan kami sampaikan setelah desain mendapatkan persetujuan dari klien. Pada tahap ini, kami akan bersama-sama menyepakati kontrak kerja sesuai dengan rincian biaya yang telah dijabarkan." },
     {id: 6, title: "Produksi",image:"/bg/bg-1.webp", desc: "Setelah penawaran harga disepakati dan terjadi kesepakatan dengan tim kami, langkah selanjutnya adalah memulai proses produksi. Kami akan merealisasikan desain-desain yang telah mendapat persetujuan dari klien. Dengan demikian, kami berkomitmen untuk memberikan hasil yang memuaskan dan mewujudkan seluruh keinginan serta kebutuhan klien sesuai dengan harapan mereka terhadap interior." },
 ]
+
+export const clients = [
+    {id: 1, name: "Client 1", logo: "/clients/client-1.webp", alt: "Client 1" },
+    {id: 2, name: "Client 2", logo: "/clients/client-2.webp", alt: "Client 2" },
+    {id: 3, name: "Client 3", logo: "/clients/client-3.webp", alt: "Client 3" },
+    {id: 4, name: "Client 4", logo: "/clients/client-4.webp", alt: "Client 4" },
+    {id: 5, name: "Client 5", logo: "/clients/client-5.webp", alt: "Client 5" },
+    {id: 6, name: "Client 6", logo: "/clients/client-6.webp", alt: "Client 6" },
+    {id: 7, name: "Client 7", logo: "/clients/client-7.webp", alt: "Client 7" },
+    {id: 8, name: "Client 8", logo: "/clients/client-8.webp", alt: "Client 8" },
+]
