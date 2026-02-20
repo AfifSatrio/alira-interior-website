@@ -45,11 +45,6 @@ const PortfolioCarousel = () => {
     emblaApi.on("select", onSelect)
   }, [emblaApi, onSelect])
 
-  const scrollTo = (index: number) => {
-    if (!emblaApi) return
-    emblaApi.scrollTo(index)
-  }
-
   return (
     <div className="overflow-hidden py-10">
 
