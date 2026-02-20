@@ -1,5 +1,4 @@
 import { valueIcons } from "@/constants"
-import { div } from "framer-motion/client"
 import Image from "next/image"
 
 const ValueSection = () => {
