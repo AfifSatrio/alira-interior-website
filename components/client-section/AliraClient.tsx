@@ -23,9 +23,10 @@ const AliraClient = () => {
             <Image
               src={client.logo}
               alt={client.alt}
-              width={160}
-              height={80}
+              width={100}
+              height={50}
               className="object-contain transition duration-300"
+              loading="lazy"
             />
           </div>
         ))}

@@ -4,6 +4,7 @@ import ProcessSection from "@/components/process-section/ProcessSection"
 import ProjectSection from "@/components/project-section/ProjectSection"
 import ValueSection from "@/components/value-section/ValueSection"
 import ClientSection from "@/components/client-section/ClientSection"
+import BlogSection from "@/components/blog-section/BlogSection"
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
       <ValueSection />
       <ProcessSection />
       <ClientSection />
+      <BlogSection />
     </div>
   )
 }

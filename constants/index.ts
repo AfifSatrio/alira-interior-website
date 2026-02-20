@@ -41,3 +41,10 @@ export const clients = [
     {id: 7, name: "Client 7", logo: "/clients/client-7.webp", alt: "Client 7" },
     {id: 8, name: "Client 8", logo: "/clients/client-8.webp", alt: "Client 8" },
 ]
+
+export const blogExamples = [
+    {id: 1, title: "Judul Blog 1", image: "/bg/bg-1.webp", alt:"blog 1", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", datetime: "2024-06-01"},
+    {id: 2, title: "Judul Blog 2", image: "/bg/bg-1.webp", alt:"blog 2", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", datetime: "2024-06-02"},
+    {id: 3, title: "Judul Blog 3", image: "/bg/bg-1.webp", alt:"blog 3", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", datetime: "2024-06-03"},
+    {id: 4, title: "Judul Blog 4", image: "/bg/bg-1.webp", alt:"blog 4", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", datetime: "2024-06-04"},
+]

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Serif_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/header/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const dm_serif = DM_Serif_Display({
   weight: "400",
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
       <Navbar />
         {children}
+      <Footer />
       </body>
     </html>
   );
