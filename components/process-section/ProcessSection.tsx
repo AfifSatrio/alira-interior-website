@@ -15,10 +15,10 @@ const ProcessSection = () => {
         <div className="grid grid-cols-6 gap-4 mt-10">
           {processSteps.map((index) => (
             <div key={index.id} className="flex flex-row gap-4 items-center">
-              <button className={`w-fit px-4 py-2 cursor-pointer transition-all ${activeStep === index.id ? "bg-black text-white" : "text-black bg-primary"}`} onClick={() => setActiveStep(index.id)}>
+              <button className={`w-fit px-4 py-2 cursor-pointer transition-all ${activeStep === index.id ? "bg-black text-white" : "text-black bg-alira"}`} onClick={() => setActiveStep(index.id)}>
                 {index.id}
               </button>
-              <div className="bg-primary w-full h-0.5"/>
+              <div className="bg-alira w-full h-0.5"/>
             </div>
           ))}
         </div>
