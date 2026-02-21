@@ -17,8 +17,6 @@ const ProjectsContent = () => {
       >
         {portfolioHighlight.slice(0, 1).map((index) => (
           <div className="contents" key={index.id}>
-
-            {/* COLUMN 1 */}
             <motion.div
               className="flex flex-col items-end gap-1"
               initial={{ opacity: 0, y: 40 }}
@@ -49,7 +47,6 @@ const ProjectsContent = () => {
               </motion.div>
             </motion.div>
 
-            {/* COLUMN 2 */}
             <motion.div
               className="flex flex-col justify-end gap-1"
               initial={{ opacity: 0, y: 40 }}
@@ -87,7 +84,6 @@ const ProjectsContent = () => {
               </motion.div>
             </motion.div>
 
-            {/* COLUMN 3 */}
             <motion.div
               className="flex flex-col justify-end gap-1"
               initial={{ opacity: 0, y: 40 }}
