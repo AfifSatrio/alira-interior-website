@@ -23,7 +23,7 @@ const ProcessSection = () => {
           ))}
         </div>
       <div className="pt-10 flex flex-row gap-10">
-        <Image src={selectedData?.image} alt={selectedData?.title} width={500} height={300} className="rounded-lg mb-6" />
+        {selectedData && <Image src={selectedData.image} alt={selectedData.title} width={500} height={300} className="rounded-lg mb-6" />}
         <div className="flex flex-col">
           <h3 className="text-2xl font-bold font-poppins mb-4">
             {selectedData?.title}
