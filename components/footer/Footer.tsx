@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="pt-10 mx-auto w-full flex flex-col bg-white text-black">
+    <div className="pt-10 mx-auto w-full flex flex-col bg-white text-black border-t border-alira">
         <div className="grid md:grid-cols-[1fr_2fr_1fr] grid-cols-1 gap-10 mx-15">
             <Image src={"/logo/footer-logo.svg"} alt={"footer logo"} width={150} height={100} className="scale-90 lg:scale-100"/>
             <div className="flex flex-col font-poppins gap-2">

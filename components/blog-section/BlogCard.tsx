@@ -72,7 +72,7 @@ const BlogCard = () => {
               <CardDescription>
                 <Link
                   href={`/blog/${blog.id}`}
-                  className="text-sm text-black hover:text-primary hover:underline transition-all font-poppins"
+                  className="text-sm text-black hover:text-alira hover:underline transition-all font-poppins"
                 >
                   Baca Selengkapnya
                 </Link>
