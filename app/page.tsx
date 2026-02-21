@@ -8,9 +8,9 @@ import BlogSection from "@/components/blog-section/BlogSection"
 
 const page = () => {
   return (
-    <div className="">
+    <div>
       <Hero />
-      <Jasa />
+      <Jasa />  
       <ProjectSection />
       <ValueSection />
       <ProcessSection />
