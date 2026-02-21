@@ -3,7 +3,7 @@
 import { processSteps } from "@/constants"
 import { useState } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, easeInOut } from "framer-motion"
 
 const containerVariants = {
   hidden: { opacity: 0, y: 60 },
@@ -12,7 +12,7 @@ const containerVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.4, 0, 0.2, 1],
+      ease: easeInOut,
       staggerChildren: 0.1,
     },
   },

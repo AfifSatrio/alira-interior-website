@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { easeInOut, motion } from "framer-motion"
 import BlogCard from "./BlogCard"
 
 const containerVariants = {
@@ -20,7 +20,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.4, 0, 0.2, 1],
+      ease: easeInOut,
     },
   },
 }

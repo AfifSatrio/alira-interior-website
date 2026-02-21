@@ -5,7 +5,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card"
 import Image from "next/image"
 import { Clock } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { easeInOut, motion } from "framer-motion"
 
 const containerVariants = {
   hidden: {},
@@ -23,7 +23,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.4, 0, 0.2, 1],
+      ease: easeInOut,
     },
   },
 }
