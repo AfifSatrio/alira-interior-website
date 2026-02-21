@@ -36,7 +36,6 @@ const ProjectSection = () => {
         viewport={{ once: true }}
       >
 
-        {/* Heading */}
         <div className="text-center flex flex-col gap-4 mx-auto max-w-5xl px-6">
           
           <motion.h1
@@ -56,8 +55,6 @@ const ProjectSection = () => {
           </motion.span>
 
         </div>
-
-        {/* Project Highlight */}
         <motion.div
           variants={itemVariants}
           className="mt-14"
@@ -71,7 +68,7 @@ const ProjectSection = () => {
           className="w-full flex justify-center mt-10"
         >
           <Link
-            href={"/portfolio"}
+            href={"/projects"}
             className="lg:px-10 px-8 lg:py-3 py-2 bg-white text-black rounded-full text-sm lg:text-base font-poppins font-bold hover:bg-black hover:text-white transition duration-300"
           >
             Lihat Semua Proyek

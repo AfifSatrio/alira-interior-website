@@ -27,7 +27,7 @@ const itemVariants = {
 
 const AboutPageContent = () => {
   return (
-    <section className="w-full pt-20">
+    <section className="w-full md:pt-20">
       <motion.div
         className="max-w-6xl mx-auto px-6"
         variants={containerVariants}
@@ -35,7 +35,7 @@ const AboutPageContent = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col md:flex-row items-center gap-12">
 
           {/* Image (Desktop Only) */}
           <motion.div
@@ -56,7 +56,7 @@ const AboutPageContent = () => {
           </motion.div>
 
           {/* Content Side */}
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full items-center">
 
             {/* Main Card */}
             <motion.div
