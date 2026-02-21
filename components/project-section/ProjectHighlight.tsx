@@ -46,7 +46,7 @@ const PortfolioCarousel = () => {
   }, [emblaApi, onSelect])
 
   return (
-    <div className="overflow-hidden py-10">
+    <div className="overflow-hidden py-0 mt-10">
 
       <div ref={emblaRef}>
         <div className="flex">
@@ -61,7 +61,7 @@ const PortfolioCarousel = () => {
                     opacity: isActive ? 1 : 0.6,
                   }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className="relative w-180 h-100 rounded-xl overflow-hidden shadow-2xl"
+                  className="relative lg:w-180 w-100 lg:h-100 h-50 rounded-xl overflow-hidden shadow-2xl"
                 >
                   <Image
                     src={src}

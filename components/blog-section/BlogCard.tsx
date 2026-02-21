@@ -6,7 +6,7 @@ import Link from "next/link"
 
 const BlogCard = () => {
   return (
-    <div className="mt-20 flex flex-row justify-center gap-10">
+    <div className="mt-20 mx-10 grid grid-cols-1 md:grid-cols-3 justify-center gap-10">
         {blogExamples.slice(0,3).map((blog) => (
             <Card className="relative mx-auto w-full max-w-sm pt-0 bg-white border-0" key={blog.id}>
                 <div className="absolute inset-0 z-30 aspect-video"/>
