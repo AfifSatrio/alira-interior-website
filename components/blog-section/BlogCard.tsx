@@ -45,7 +45,6 @@ const BlogCard = () => {
           transition={{ duration: 0.3 }}
         >
           <Card className="relative w-full bg-white border-0 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-            
             <div className="relative w-full h-52 overflow-hidden rounded-t-xl">
                 <Image
                     src={blog.image}
@@ -54,21 +53,17 @@ const BlogCard = () => {
                     className="object-cover"
                 />
             </div>
-
             <CardHeader className="space-y-3">
               <CardTitle className="text-lg font-semibold">
                 {blog.title}
               </CardTitle>
-
               <CardDescription className="flex items-center text-sm text-gray-500">
                 <Clock className="mr-2 w-4 h-4" />
                 {blog.datetime}
               </CardDescription>
-
               <CardDescription className="line-clamp-2 text-gray-600 text-sm">
                 {blog.desc}
               </CardDescription>
-
               <CardDescription>
                 <Link
                   href={`/blog/${blog.id}`}
