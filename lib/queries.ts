@@ -25,3 +25,11 @@ export const seoSettingsQuery = groq `
     seoImage
   }
 `
+
+export const aliraClients = groq `
+  *[_type == "clients"]{
+    _id,
+    clientName,
+    clientLogo
+  }
+`

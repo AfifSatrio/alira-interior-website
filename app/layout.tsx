@@ -20,16 +20,14 @@ const poppins = Poppins({
 });
 
 export async function generateMetadata(): Promise<Metadata>{
-  const settings = await sanityClient.fetch(siteSettingsQuery)
+  
   const seoSettings = await sanityClient.fetch(seoSettingsQuery)
-
   const favicon = seoSettings?.seoImage ? urlFor(seoSettings.seoImage).width(64).height(64).url() : undefined
-
   const ogImage = seoSettings?.seoImage ? urlFor(seoSettings.seoImage).width(1200).height(630).url() : undefined
 
   return {
-    title: settings?.seoTitle,
-    description: settings?.seoDesc,
+    title: seoSettings?.seoTitle,
+    description: seoSettings?.seoDesc,
     icons: {
       icon: favicon
     },

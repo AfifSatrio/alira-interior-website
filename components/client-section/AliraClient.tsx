@@ -1,10 +1,16 @@
 "use client"
 
-import { clients } from "@/constants"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { urlFor } from "@/lib/sanity.image"
 
-const AliraClient = () => {
+interface Clients {
+  _id: string
+  clientName: string
+  clientLogo: any
+}
+
+const AliraClient = ({ clients }: { clients: Clients[] }) => {
   const duplicatedClients = [...clients, ...clients]
 
   return (
@@ -19,10 +25,10 @@ const AliraClient = () => {
         }}
       >
         {duplicatedClients.map((client, index) => (
-          <div key={index} className="shrink-0 px-12 flex items-center justify-center">
+          <div key={`${client._id}-${index}`} className="shrink-0 px-12 flex items-center justify-center">
             <Image
-              src={client.logo}
-              alt={client.alt}
+              src={urlFor(client.clientLogo).width(200).format("webp").url()}
+              alt={client.clientName}
               width={100}
               height={50}
               className="object-contain transition duration-300"
