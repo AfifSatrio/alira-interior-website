@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-const Footer = () => {
+interface Settings {
+    whatsappNumber: string
+    email: string
+    address: string
+}
+
+const Footer = ({ settings }: { settings: Settings }) => {
   return (
     <div className="pt-10 mx-auto w-full flex flex-col bg-white text-black border-t border-alira">
         <div className="grid md:grid-cols-[1fr_2fr_1fr] grid-cols-1 gap-10 mx-15">
@@ -13,8 +19,9 @@ const Footer = () => {
                 <h1 className="font-bold text-lg">
                     Hubungi Kami
                 </h1>
-                <span className="font-light text-sm">0823-2693-1783</span>
-                <span className="font-light text-sm">info@alirainterior.com</span>
+                <span className="font-light text-sm">{settings.whatsappNumber}</span>
+                <span className="font-light text-sm">{settings.email}</span>
+                <span className="font-light text-sm">{settings.address}</span>
             </div>
         </div>
         <span className="font-light md:text-sm font-poppins mt-10 text-center mb-5 text-xs">©2026 Copyright Alira Interior. All rights Reserved.</span>

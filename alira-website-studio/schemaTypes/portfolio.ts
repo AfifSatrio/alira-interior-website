@@ -1,27 +1,41 @@
-export default {
-    name: 'portfolio',
-    type: 'document',
-    title: 'Portofolio',
-    fields: [
-        {
-            name: 'image',
-            type: 'image',
-            title: 'Dokumentasi Proyek',
-        },
-        {
-            name: 'altText',
-            type: 'string',
-            title: 'Nama Proyek',
-        },
-        {
-            name: 'category',
-            type: 'string',
-            title: 'Kategori Portofolio',
-            options: {
-                list: [
-                    { title: 'Highlight', value: 'highlight' },
-                ]
-            }
-        },
-    ]
-}
+import { defineType, defineField } from "sanity"
+
+export const portfolio = defineType({
+  name: "portfolio",
+  title: "Portfolio",
+  type: "document",
+  fields: [
+
+    defineField({
+      name: "title",
+      title: "Judul Proyek",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: "coverImage",
+      title: "Gambar",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: "featured",
+      title: "Tampilkan di Beranda (Highlight)",
+      type: "boolean",
+      initialValue: false,
+    }),
+  ],
+
+  preview: {
+    select: {
+      title: "title",
+      media: "coverImage",
+      subtitle: "category",
+    },
+  },
+})

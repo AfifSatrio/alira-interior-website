@@ -5,16 +5,16 @@ import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { urlFor } from "@/lib/sanity.image"
 
-const images = [
-  "/bg/bg-1.webp",
-  "/bg/bg-1.webp",
-  "/bg/bg-1.webp",
-  "/bg/bg-1.webp",
-  "/bg/bg-1.webp",
-]
+interface Project {
+  [x: string]: any
+  _id: string
+  title: string
+  image: string
+}
 
-const PortfolioCarousel = () => {
+const ProjectHighlight = ({ projects }: {projects: Project[] }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "center" },
     [Autoplay({ delay: 3000, stopOnInteraction: false })]
@@ -50,11 +50,11 @@ const PortfolioCarousel = () => {
 
       <div ref={emblaRef}>
         <div className="flex">
-          {images.map((src, index) => {
+          {projects.map((project, index) => {
             const isActive = index === selectedIndex
 
             return (
-              <div key={index} className="flex-[0_0_33.333%] px-2">
+              <div key={project._id} className="flex-[0_0_33.333%] px-2">
                 <motion.div
                   animate={{
                     scale: isActive ? 1 : 0.85,
@@ -64,10 +64,11 @@ const PortfolioCarousel = () => {
                   className="relative lg:w-180 w-100 lg:h-100 h-50 rounded-xl overflow-hidden shadow-2xl"
                 >
                   <Image
-                    src={src}
-                    alt="portfolio"
+                    src={urlFor(project.coverImage).url()}
+                    alt={project.title}
                     fill
                     className="object-cover"
+                    loading="lazy"
                   />
                 </motion.div>
               </div>
@@ -98,4 +99,4 @@ const PortfolioCarousel = () => {
   )
 }
 
-export default PortfolioCarousel
+export default ProjectHighlight

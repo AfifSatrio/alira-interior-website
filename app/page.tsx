@@ -5,19 +5,22 @@ import ProjectSection from "@/components/project-section/ProjectSection"
 import ValueSection from "@/components/value-section/ValueSection"
 import ClientSection from "@/components/client-section/ClientSection"
 import BlogSection from "@/components/blog-section/BlogSection"
+import { sanityClient } from "@/lib/sanity.client"
+import { highlightPortfolioQuery, siteSettingsQuery } from "@/lib/queries"
 
-const page = () => {
+export default async function page() {
+  const projects = await sanityClient.fetch(highlightPortfolioQuery)
+  const settings =  await sanityClient.fetch(siteSettingsQuery)
+
   return (
-    <div>
-      <Hero />
+    <>
+      <Hero projects={projects} settings={settings}/>
       <Jasa />  
       <ProjectSection />
       <ValueSection />
       <ProcessSection />
       <ClientSection />
       <BlogSection />
-    </div>
+    </>
   )
 }
-
-export default page

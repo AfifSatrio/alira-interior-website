@@ -3,10 +3,27 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import ProyekPreview from "./ProyekPreview"
+import { urlFor } from "@/lib/sanity.image"
+import Image from "next/image"
 
-const Hero = () => {
+interface Project {
+  _id: string
+  title: string
+  coverImage: any
+}
+
+interface Settings {
+  tagline: string
+  subtagline: string 
+  backgroundImage: any
+}
+
+const Hero = ({ projects, settings }: { projects: Project[]; settings:Settings }) => {
   return (
-    <div className="relative bg-[url('/bg/bg-1.webp')] h-screen w-full bg-cover bg-center overflow-hidden">
+    <div className="relative h-screen w-full bg-cover bg-center overflow-hidden">
+      {settings?.backgroundImage && (
+        <Image src={urlFor(settings.backgroundImage).width(1920).quality(80).format("webp").url()} alt="Hero Bg" fill priority className="object-cover"/>
+      )}
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <div className="mt-15 lg:max-w-275 max-w-180 px-5 space-y-8">
@@ -20,7 +37,7 @@ const Hero = () => {
             }}
             className="lg:text-[56px] text-4xl leading-[1.2] text-white font-dm-serif"
           >
-            Presisi dalam Detail, Kekuatan dalam Konstruksi, dan Keindahan dalam Desain.
+            {settings.tagline}
           </motion.h1>
 
           <motion.p
@@ -33,7 +50,7 @@ const Hero = () => {
             }}
             className="lg:text-lg text-sm text-white/90 font-poppins"
           >
-            Alira Interior menawarkan jasa kebutuhan interior, renovasi dan rehabilitasi interior, serta jasa desain interior dengan profesional, presisi, dan terjamin.
+            {settings.subtagline}
           </motion.p>
         </div>
 
@@ -42,7 +59,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
         >
-          <ProyekPreview />
+          <ProyekPreview projects={projects}/>
         </motion.div>
 
         <motion.div
