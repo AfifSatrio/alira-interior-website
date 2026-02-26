@@ -1,6 +1,5 @@
 import { sanityClient } from "@/lib/sanity.client"
 import AliraClient from "./AliraClient"
-import { motion } from "framer-motion"
 import { aliraClients } from "@/lib/queries"
 
 const ClientSection = async () => {

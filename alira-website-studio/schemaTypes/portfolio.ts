@@ -25,7 +25,7 @@ export const portfolio = defineType({
 
     defineField({
       name: "featured",
-      title: "Tampilkan di Beranda (Highlight)",
+      title: "Highlight",
       type: "boolean",
       initialValue: false,
     }),

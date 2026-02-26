@@ -33,3 +33,11 @@ export const aliraClients = groq `
     clientLogo
   }
 `
+
+export const portfolioQuery = groq `
+  *[_type == "portfolio"] | order(_createdAt asc){
+    _id,
+    title,
+    coverImage
+  }
+`

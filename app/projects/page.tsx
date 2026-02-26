@@ -1,13 +1,14 @@
 import ProjectPage from "@/components/projectspage/ProjectPage"
 import ProjectsContent from "@/components/projectspage/ProjectsContent"
-import ProjectsContentMd from "@/components/projectspage/ProjectsContentMd"
+import { portfolioQuery } from "@/lib/queries"
+import { sanityClient } from "@/lib/sanity.client"
 
-const page = () => {
+const page = async () => {
+  const projects = await sanityClient.fetch(portfolioQuery)
   return (
     <div>
         <ProjectPage />
-        <ProjectsContent />
-        <ProjectsContentMd />
+        <ProjectsContent projects={projects}/>
     </div>
   )
 }

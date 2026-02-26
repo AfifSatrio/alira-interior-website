@@ -1,119 +1,101 @@
 "use client"
 
-import { portfolioHighlight } from "@/constants"
-import Counter from "../aboutpage/Counter"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { urlFor } from "@/lib/sanity.image"
 
-const ProjectsContent = () => {
+interface Project {
+  _id: string
+  title: string
+  coverImage: any
+}
+
+const ProjectsContent = ({ projects }: { projects: Project[] }) => {
   return (
-    <div className="mx-auto w-full lg:block hidden">
-      <motion.div
-        className="grid grid-cols-3 mb-20 gap-1 mx-10"
-        initial={{ opacity: 0, y: 40 }}
+    <div className="mx-auto w-full pt-14 pb-24">
+
+      {/* Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.7 }}
         viewport={{ once: true }}
+        className="text-center text-3xl lg:text-4xl font-bold mx-6"
       >
-        {portfolioHighlight.slice(0, 1).map((index) => (
-          <div className="contents" key={index.id}>
+        Kumpulan Proyek Alira Interior
+      </motion.h1>
+
+      {/* Description */}
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.15 }}
+        viewport={{ once: true }}
+        className="text-center text-sm lg:text-base max-w-3xl mx-auto mt-6 px-6"
+      >
+        Di Alira Interior, setiap proyek adalah cerminan komitmen kami terhadap kualitas, ketelitian, dan daya tahan jangka panjang.
+      </motion.p>
+
+      {/* Grid */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: { staggerChildren: 0.1 },
+          },
+        }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 px-6 lg:px-16"
+      >
+        {projects.map((project) => (
+          <motion.div
+            key={project._id}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            whileHover="hover"
+            initial="rest"
+            animate="rest"
+            className="relative aspect-4/3 w-full overflow-hidden rounded-lg group cursor-pointer"
+          >
+            {/* Image */}
+            <Image
+              src={urlFor(project.coverImage)
+                .width(800)
+                .height(600)
+                .fit("crop")
+                .format("webp")
+                .url()}
+              alt={project.title}
+              fill
+              className="object-cover transition duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+
+            {/* Overlay */}
             <motion.div
-              className="flex flex-col items-end gap-1"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
+              variants={{
+                rest: { opacity: 0 },
+                hover: { opacity: 1 },
+              }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 bg-black/50 flex items-center justify-center"
             >
-              <div className="relative border-2 border-alira -z-10 px-8 py-8 -bottom-15 w-50 h-20 left-5"/>
-
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Image
-                  src={index.image}
-                  alt={index.name}
-                  width={300}
-                  height={360}
-                  className="relative object-cover h-[50vh]"
-                />
-              </motion.div>
-
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Image
-                  src={index.image}
-                  alt={index.name}
-                  width={300}
-                  height={360}
-                  className="relative object-cover h-[40vh]"
-                />
-              </motion.div>
+              <motion.h3
+                variants={{
+                  rest: { y: 20, opacity: 0 },
+                  hover: { y: 0, opacity: 1 },
+                }}
+                transition={{ duration: 0.3 }}
+                className="text-white text-lg font-semibold text-center px-4"
+              >
+                {project.title}
+              </motion.h3>
             </motion.div>
-
-            <motion.div
-              className="flex flex-col justify-end gap-1"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col border-r-2 border-alira">
-                <h1 className="ml-10 font-bold text-2xl">
-                  Kumpulan Proyek Alira Interior
-                </h1>
-                <span className="ml-10 mr-5 mt-5 font-poppins text-sm">
-                  Di Alira Interior, setiap proyek adalah cerminan komitmen kami terhadap kualitas, ketelitian, dan daya tahan jangka panjang.
-                </span>
-              </div>
-
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Image
-                  src={index.image}
-                  alt={index.name}
-                  width={500}
-                  height={100}
-                  className="relative object-cover h-60 mt-5"
-                />
-              </motion.div>
-
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Image
-                  src={index.image}
-                  alt={index.name}
-                  width={500}
-                  height={100}
-                  className="relative object-cover h-60"
-                />
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="flex flex-col justify-end gap-1"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative border-2 border-alira -z-10 px-8 py-8 -bottom-65 w-20 h-50 left-65"/>
-
-              <div className="flex flex-col items-center lg:items-start ml-5">
-                <h2 className="text-3xl lg:text-4xl font-black font-poppins">
-                  <Counter target={50} />
-                </h2>
-                <span className="font-poppins font-medium text-sm lg:text-base">
-                  Proyek Selesai
-                </span>
-              </div>
-
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Image
-                  src={index.image}
-                  alt={index.name}
-                  width={300}
-                  height={200}
-                  className="relative object-cover h-121 mt-5"
-                />
-              </motion.div>
-            </motion.div>
-
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>
