@@ -91,7 +91,7 @@ const AboutPageContent = () => {
                     </span>
                 </div>
 
-                <div className="flex flex-col items-center lg:items-start">
+                <div className="flex flex-col items-center">
                     <h2 className="text-3xl lg:text-4xl font-black font-poppins">
                     <Counter target={50} />
                     </h2>

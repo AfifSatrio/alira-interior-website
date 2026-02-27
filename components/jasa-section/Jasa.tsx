@@ -20,6 +20,17 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
+const rightCards = [
+  {
+    title: "Renovasi dan Rehabilitasi Interior",
+    image: "/bg/bg-3.webp",
+  },
+  {
+    title: "Jasa Desain Interior",
+    image: "/bg/bg-4.webp",
+  },
+]
+
 const Jasa = () => {
   return (
     <motion.section
@@ -55,9 +66,9 @@ const Jasa = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.4 }}
-          className="relative bg-[url('/bg/bg-1.webp')] md:h-130 h-80 w-full rounded-md bg-cover bg-center overflow-hidden"
+          className="relative bg-[url('/bg/bg-5.webp')] md:h-130 h-80 w-full rounded-md bg-cover bg-center overflow-hidden"
         >
-          <div className="absolute inset-0 bg-black/40 rounded-md" />
+          <div className="absolute inset-0 bg-black/60 rounded-md" />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,34 +88,31 @@ const Jasa = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Side Cards */}
         <div className="grid grid-cols-1 gap-6">
-          
-          {["Renovasi dan Rehabilitasi Interior", "Jasa Desain Interior"].map(
-            (title, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-                className="relative bg-[url('/bg/bg-1.webp')] h-62 rounded-md bg-cover bg-center overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-black/40 rounded-md" />
+          {rightCards.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+              className="relative h-62 rounded-md bg-cover bg-center overflow-hidden"
+              style={{ backgroundImage: `url(${item.image})` }}
+            >
+              <div className="absolute inset-0 bg-black/40 rounded-md" />
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="absolute bg-white/10 backdrop-blur-xl rounded-md py-4 px-6 mx-5 bottom-5 flex flex-col gap-2 w-fit border border-white/30"
-                >
-                  <span className="text-white font-bold text-center text-sm">
-                    {title}
-                  </span>
-                </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + index * 0.1 }}
+                viewport={{ once: true }}
+                className="absolute bg-white/10 backdrop-blur-xl rounded-md py-4 px-6 mx-5 bottom-5 flex flex-col gap-2 w-fit border border-white/30"
+              >
+                <span className="text-white font-bold text-center text-sm">
+                  {item.title}
+                </span>
               </motion.div>
-            )
-          )}
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>
