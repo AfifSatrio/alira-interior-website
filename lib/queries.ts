@@ -41,3 +41,35 @@ export const portfolioQuery = groq `
     coverImage
   }
 `
+
+export const featuredBlogquery = groq `
+  *[_type == "blog" && featured == true] | order(publishedAt desc)[0...3]{
+    _id,
+    title,
+    slug,
+    content,
+    mainImage,
+    publishedAt
+  }
+`
+export const blogquery = groq `
+  *[_type == "blog" ] | order(publishedAt desc){
+    _id,
+    title,
+    slug,
+    content,
+    mainImage,
+    publishedAt
+  }
+`
+
+export const detailBlogQuery = groq `
+  *[_type == "blog" && slug.current == $slug][0]{
+    _id,
+    title,
+    mainImage,
+    content,
+    publishedAt,
+    author,
+  }
+`
