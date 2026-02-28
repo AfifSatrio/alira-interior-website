@@ -20,8 +20,8 @@ const Footer = ({ settings }: { settings: Settings }) => {
                     Hubungi Kami
                 </h1>
                 <span className="font-light text-sm">{settings?.whatsappNumber}</span>
-                <span className="font-light text-sm">{settings.email}</span>
-                <span className="font-light text-sm">{settings.address}</span>
+                <span className="font-light text-sm">{settings?.email}</span>
+                <span className="font-light text-sm">{settings?.address}</span>
             </div>
         </div>
         <span className="font-light md:text-sm font-poppins mt-10 text-center mb-5 text-xs">©2026 Copyright Alira Interior. All rights Reserved.</span>
