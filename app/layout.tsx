@@ -7,6 +7,7 @@ import { sanityClient } from "@/lib/sanity.client";
 import { seoSettingsQuery, siteSettingsQuery } from "@/lib/queries";
 import { urlFor } from "@/lib/sanity.image";
 import WhatsappFloat from "@/components/WhatsappFloat";
+import { Analytics } from "@vercel/analytics/next";
 
 const dm_serif = DM_Serif_Display({
   weight: "400",
@@ -69,6 +70,7 @@ export default async function RootLayout({
       >
       <Navbar />
         {children}
+        <Analytics />
       <Footer settings={settings}/>
       <WhatsappFloat phone={"6282326931783"} />
       </body>
