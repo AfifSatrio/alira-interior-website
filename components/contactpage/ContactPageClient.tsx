@@ -54,7 +54,7 @@ const ContactPageContent = ({ contact }: {contact: any }) => {
           </div>
         </motion.div>
       </div>
-      <AliraMaps mapUrl={contact.mapUrl}/>
+      <AliraMaps mapUrl={contact?.mapUrl}/>
     </motion.div>
   )
 }
