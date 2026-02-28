@@ -56,5 +56,12 @@ export const siteSettings = defineType({
         title: "Link Socmed",
         type: "url"
        }),
+
+       defineField({
+        name: "mapUrl",
+        title: "Link Alamat",
+        type: "url",
+        validation: (Rule) => Rule.required(),
+       }),
     ]
 })

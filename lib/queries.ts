@@ -15,7 +15,8 @@ export const siteSettingsQuery = groq `
     backgroundImage, 
     whatsappNumber, 
     email, 
-    address
+    address,
+    mapUrl
   }
 `
 export const seoSettingsQuery = groq `

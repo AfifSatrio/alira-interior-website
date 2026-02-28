@@ -1,9 +1,8 @@
 "use client"
 
-import { sanityClient } from "@/lib/sanity.client"
 import AliraContact from "./AliraContact"
+import AliraMaps from "./AliraMaps"
 import ContactForm from "./ContactForm"
-import { siteSettingsQuery } from "@/lib/queries"
 import { motion, easeInOut } from "framer-motion"
 
 const containerVariants = {
@@ -33,7 +32,7 @@ const ContactPageContent = ({ contact }: {contact: any }) => {
       variants={containerVariants}
       className="w-full mx-auto my-10"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 mt-20 gap-6 mx-5 lg:mx-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 mt-15 gap-8 mx-5 lg:mx-20">
         <motion.div variants={itemVariants} className="w-full">
           <ContactForm />
         </motion.div>
@@ -55,6 +54,7 @@ const ContactPageContent = ({ contact }: {contact: any }) => {
           </div>
         </motion.div>
       </div>
+      <AliraMaps mapUrl={contact.mapUrl}/>
     </motion.div>
   )
 }
