@@ -19,7 +19,7 @@ const Footer = ({ settings }: { settings: Settings }) => {
                 <h1 className="font-bold text-lg">
                     Hubungi Kami
                 </h1>
-                <span className="font-light text-sm">{settings.whatsappNumber}</span>
+                <span className="font-light text-sm">{settings?.whatsappNumber}</span>
                 <span className="font-light text-sm">{settings.email}</span>
                 <span className="font-light text-sm">{settings.address}</span>
             </div>
