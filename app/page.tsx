@@ -12,6 +12,8 @@ export default async function page() {
   const projects = await sanityClient.fetch(highlightPortfolioQuery)
   const settings =  await sanityClient.fetch(siteSettingsQuery)
 
+  if (!settings) return null
+
   return (
     <>
       <Hero projects={projects} settings={settings}/>
