@@ -1,11 +1,11 @@
-import AboutPage from '@/components/aboutpage/AboutPage'
 import AboutPageContent from '@/components/aboutpage/AboutPageContent'
 import ValueSection from '@/components/value-section/ValueSection'
+import AboutPageHeader from '@/components/aboutpage/AboutPageHeader'
 
 const page = () => {
   return (
     <div>
-        <AboutPage />
+        <AboutPageHeader />
         <AboutPageContent />
         <ValueSection />
     </div>

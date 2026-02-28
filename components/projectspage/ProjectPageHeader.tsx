@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-const ProjectPage = () => {
+const ProjectPageHeader = () => {
   return (
     <div className="relative bg-[url('/bg/bg-1.webp')] w-full md:h-[40vh] h-[30vh] bg-cover bg-center overflow-hidden">
       <div className="absolute inset-0 bg-black/60" />
@@ -27,4 +27,4 @@ const ProjectPage = () => {
   )
 }
 
-export default ProjectPage
+export default ProjectPageHeader
