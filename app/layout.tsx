@@ -6,6 +6,7 @@ import Footer from "@/components/footer/Footer";
 import { sanityClient } from "@/lib/sanity.client";
 import { seoSettingsQuery, siteSettingsQuery } from "@/lib/queries";
 import { urlFor } from "@/lib/sanity.image";
+import WhatsappFloat from "@/components/WhatsappFloat";
 
 const dm_serif = DM_Serif_Display({
   weight: "400",
@@ -26,7 +27,11 @@ export async function generateMetadata(): Promise<Metadata>{
   const ogImage = seoSettings?.seoImage ? urlFor(seoSettings.seoImage).width(1200).height(630).url() : undefined
 
   return {
-    title: seoSettings?.seoTitle,
+    title:  {
+      template: `%s`,
+      default: seoSettings?.seoTitle ?? 'Website',
+    },
+
     description: seoSettings?.seoDesc,
     icons: {
       icon: favicon
@@ -65,6 +70,7 @@ export default async function RootLayout({
       <Navbar />
         {children}
       <Footer settings={settings}/>
+      <WhatsappFloat phone={"6282326931783"} />
       </body>
     </html>
   );
