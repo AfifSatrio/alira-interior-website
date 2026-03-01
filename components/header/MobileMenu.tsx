@@ -6,7 +6,6 @@ import { useState } from "react"
 import { navbarMenu } from "@/constants"
 import Link from "next/link"
 
-// Variants untuk container dropdown — pakai clipPath biar lebih crisp dari height
 const menuVariants: Variants = {
   closed: {
     clipPath: "inset(0% 0% 100% 0%)",
@@ -20,7 +19,6 @@ const menuVariants: Variants = {
   },
 }
 
-// Icon swap (Menu ↔ X) dengan rotasi
 const iconVariants = {
   initial: { rotate: -90, opacity: 0, scale: 0.5 },
   animate: {

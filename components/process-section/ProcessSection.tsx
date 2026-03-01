@@ -43,7 +43,7 @@ const ProcessSection = () => {
         variants={itemVariants}
         className="lg:text-4xl text-3xl font-black font-poppins leading-tight mb-12"
       >
-        Perjalanan Eksklusif Menuju Ruang yang Sempurna
+        Proses Perjalanan Eksklusif Menuju Ruang yang Sempurna
       </motion.h1>
 
       {/* Step Navigation */}
