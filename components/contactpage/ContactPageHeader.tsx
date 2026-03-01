@@ -17,7 +17,7 @@ const ContactPageHeader = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="text-white text-center font-poppins text-sm px-10"
+                className="text-white text-center font-poppins md:text-sm text-xs px-10"
                 >
                 Sampaikan kepada kami atau minta konsultasi seputar desain interior
             </motion.p>

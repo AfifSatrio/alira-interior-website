@@ -17,7 +17,7 @@ const BlogPageHeader = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="text-white text-center font-poppins text-sm"
+                className="text-white text-center font-poppins md:text-sm text-xs"
                 >
                 Temukan Inspirasi di Balik Setiap Ruang
             </motion.p>
