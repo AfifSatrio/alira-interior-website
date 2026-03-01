@@ -1,22 +1,22 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, Variants } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { navbarMenu } from "@/constants"
 import Link from "next/link"
 
 // Variants untuk container dropdown — pakai clipPath biar lebih crisp dari height
-const menuVariants = {
+const menuVariants: Variants = {
   closed: {
     clipPath: "inset(0% 0% 100% 0%)",
     opacity: 0,
-    transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
   },
   open: {
     clipPath: "inset(0% 0% 0% 0%)",
     opacity: 1,
-    transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
   },
 }
 
