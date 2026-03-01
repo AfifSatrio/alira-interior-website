@@ -6,6 +6,7 @@ import { useState } from "react"
 import { navbarMenu } from "@/constants"
 import Link from "next/link"
 
+// Variants untuk container dropdown — pakai clipPath biar lebih crisp dari height
 const menuVariants = {
   closed: {
     clipPath: "inset(0% 0% 100% 0%)",
@@ -19,19 +20,20 @@ const menuVariants = {
   },
 }
 
+// Icon swap (Menu ↔ X) dengan rotasi
 const iconVariants = {
   initial: { rotate: -90, opacity: 0, scale: 0.5 },
   animate: {
     rotate: 0,
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.2, ease: "easeOut" },
+    transition: { duration: 0.2, ease: "easeOut" as const },
   },
   exit: {
     rotate: 90,
     opacity: 0,
     scale: 0.5,
-    transition: { duration: 0.15, ease: "easeIn" },
+    transition: { duration: 0.15, ease: "easeIn" as const },
   },
 }
 
@@ -40,6 +42,7 @@ const MobileMenu = ({ pathname }: { isScrolled: boolean; pathname: string }) => 
 
   return (
     <div className="flex flex-col items-end justify-center lg:hidden w-full">
+      {/* Toggle button — icon swap dengan animasi */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="cursor-pointer relative w-7 h-7 flex items-center justify-center"
