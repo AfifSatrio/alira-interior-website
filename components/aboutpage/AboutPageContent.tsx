@@ -27,7 +27,7 @@ const itemVariants = {
 
 const AboutPageContent = () => {
   return (
-    <section className="w-full md:pt-20 pt-10">
+    <section className="w-full md:pt-20 py-10">
       <motion.div
         className="max-w-6xl mx-auto px-6"
         variants={containerVariants}

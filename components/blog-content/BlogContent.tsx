@@ -38,26 +38,26 @@ const BlogContent = ({ blog }: { blog: Blog }) => {
                     <a href={`https://wa.me/?text=${encodeURIComponent(blog.title + " " + window.location.href)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-full hover:bg-green-100 transition hover:scale-110"
+                        className="px-3 py-2 rounded-full hover:bg-green-100 transition hover:scale-110"
                     >
                         <i className="ri-whatsapp-fill text-xl text-green-600"></i>
                     </a>
                     <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-full hover:bg-blue-100 transition hover:scale-110"
+                        className="px-3 py-2 rounded-full hover:bg-blue-100 transition hover:scale-110"
                     >
                         <i className="ri-facebook-fill text-xl text-blue-600"></i>
                     </a>
                     <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(window.location.href)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-full hover:bg-black/10 transition hover:scale-110"
+                        className="px-3 py-2 rounded-full hover:bg-black/10 transition hover:scale-110"
                     >
                         <i className="ri-twitter-x-fill text-xl"></i>
                     </a>
                     <button onClick={() => navigator.share?.({ title: blog.title, url: window.location.href, })}
-                        className="p-2 rounded-full hover:bg-black/5 transition hover:scale-110"
+                        className="px-3 py-2 rounded-full hover:bg-black/5 transition hover:scale-110 cursor-pointer"
                     >
                         <i className="ri-share-forward-fill text-xl"></i>
                     </button>
