@@ -32,7 +32,7 @@ const cards = [
 
 const JasaLanjutan = () => {
   return (
-    <section className="w-full max-w-6xl mx-auto px-5 font-poppins -mt-20">
+    <section className="w-full max-w-6xl mx-auto px-5 font-poppins md:-mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         {cards.map((card, i) => (
           <motion.div
