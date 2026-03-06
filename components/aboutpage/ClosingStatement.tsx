@@ -131,7 +131,7 @@ const ClosingStatement = () => {
         >
           <Link
             href="https://wa.me/6282326931783"
-            className="inline-flex items-center gap-3 border border-alira rounded-md bg-alira text-black text-[11px] tracking-[0.25em] uppercase font-poppins px-10 py-4 hover:bg-white hover:text-alira transition-all duration-300"
+            className="inline-flex items-center font-semibold gap-3 border border-alira rounded-md bg-[#D2AB67] text-white text-[15px] tracking-[0.25em] uppercase font-poppins px-10 py-4 hover:bg-white hover:text-alira transition-all duration-300"
           >
             Ajukan Konsultasi Gratis
           </Link>

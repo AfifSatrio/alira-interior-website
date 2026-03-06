@@ -19,8 +19,8 @@ const Footer = ({ settings }: { settings: Settings }) => {
                         rel="noopener noreferrer"
                         className="group flex items-center gap-2.5 w-fit"
                         >
-                        <span className="w-8 h-8 rounded-full border bg-alira flex items-center justify-center group-hover:border-alira group-hover:bg-alira/10 transition-all duration-300">
-                            <i className="ri-instagram-line text-sm text-white group-hover:text-alira transition-colors duration-300" />
+                        <span className="w-8 h-8 rounded-full border bg-[#D2AB67]  flex items-center justify-center group-hover:border-[#D2AB67]  group-hover:bg-alira/10 transition-all duration-300">
+                            <i className="ri-instagram-line text-sm text-white group-hover:text-[#D2AB67] transition-colors duration-300" />
                         </span>
                     </a>
                     <a
@@ -29,8 +29,8 @@ const Footer = ({ settings }: { settings: Settings }) => {
                         rel="noopener noreferrer"
                         className="group flex items-center gap-2.5 w-fit"
                         >
-                        <span className="w-8 h-8 rounded-full border bg-alira flex items-center justify-center group-hover:border-alira group-hover:bg-alira/10 transition-all duration-300">
-                            <i className="ri-tiktok-fill text-sm text-white group-hover:text-alira transition-colors duration-300" />
+                        <span className="w-8 h-8 rounded-full border bg-[#D2AB67]  flex items-center justify-center group-hover:border-[#D2AB67]  group-hover:bg-alira/10 transition-all duration-300">
+                            <i className="ri-tiktok-fill text-sm text-white group-hover:text-[#D2AB67] transition-colors duration-300" />
                         </span>
                     </a>
                 </div>

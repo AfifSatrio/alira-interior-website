@@ -124,7 +124,7 @@ const Jasa = () => {
       >
         <Link
           href="/about"
-          className="lg:px-10 px-8 lg:py-3 py-2 bg-alira rounded-md text-sm lg:text-base font-poppins hover:bg-white border hover:border-alira hover:text-alira transition duration-300"
+          className="lg:px-10 px-8 lg:py-3 py-2 bg-[#D2AB67] text-white rounded-md text-sm lg:text-base font-poppins hover:bg-white border hover:border-[#D2AB67] hover:text-[#D2AB67] transition duration-300"
         >
           Selengkapnya Tentang Alira
         </Link>
