@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, easeInOut } from "framer-motion"
+import Link from "next/link"
 
 const containerVariants = {
   hidden: { opacity: 0, y: 60 },
@@ -115,6 +116,19 @@ const Jasa = () => {
           ))}
         </div>
       </div>
+
+      {/* CTA Button — di luar grid */}
+      <motion.div
+        variants={itemVariants}
+        className="flex items-center justify-center mt-10 mx-10"
+      >
+        <Link
+          href="/about"
+          className="lg:px-10 px-8 lg:py-3 py-2 bg-alira rounded-md text-sm lg:text-base font-poppins hover:bg-white border hover:border-alira hover:text-alira transition duration-300"
+        >
+          Selengkapnya Tentang Alira
+        </Link>
+      </motion.div>
     </motion.section>
   )
 }

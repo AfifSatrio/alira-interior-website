@@ -22,3 +22,15 @@ export const processSteps = [
     {id: 5, title: "Penawaran Harga",image:"/photos/nego.webp", desc: "Penawaran harga akan kami sampaikan setelah desain mendapatkan persetujuan dari klien. Pada tahap ini, kami akan bersama-sama menyepakati kontrak kerja sesuai dengan rincian biaya yang telah dijabarkan." },
     {id: 6, title: "Produksi",image:"/photos/product.webp", desc: "Setelah penawaran harga disepakati dan terjadi kesepakatan dengan tim kami, langkah selanjutnya adalah memulai proses produksi. Kami akan merealisasikan desain-desain yang telah mendapat persetujuan dari klien. Dengan demikian, kami berkomitmen untuk memberikan hasil yang memuaskan dan mewujudkan seluruh keinginan serta kebutuhan klien sesuai dengan harapan mereka terhadap interior." },
 ]
+
+export const jasaAlira = [
+    {id: 1, item: "Kantor dan Corporate Space", image: ""},
+    {id: 2, item: "Apartemen dan Hunian", image: ""},
+    {id: 3, item: "Toko dan Retail", image: ""},
+    {id: 4, item: "Mall dan Commercial Area", image: ""},
+    {id: 5, item: "Hotel dan Hospitality", image: ""},
+    {id: 6, item: "Sekolah dan Instansi Pendidikan", image: ""},
+    {id: 7, item: "Hospital dan Fasilitas Kesehatan", image: ""},
+    {id: 8, item: "Rumah dan Villa", image: ""},
+    {id: 9, item: "Cafe dan Coffee Shop", image: ""},
+]

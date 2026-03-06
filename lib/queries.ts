@@ -74,3 +74,11 @@ export const detailBlogQuery = groq `
     author,
   }
 `
+
+export const serviceQuery = groq `
+  *[_type == "service" ]{
+    _id,
+    item,
+    image
+  }
+`

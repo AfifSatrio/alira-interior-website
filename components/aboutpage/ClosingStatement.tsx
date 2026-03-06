@@ -29,7 +29,7 @@ const lineVariant = {
 
 const ClosingStatement = () => {
   return (
-    <section className="relative w-full bg-[#F9F6F1] py-20 px-6 overflow-hidden">
+    <section className="relative w-full bg-[#Ffffff] py-20 px-6 overflow-hidden border border-t-alira">
 
       {/* Background texture — subtle diagonal lines */}
       <svg
@@ -130,10 +130,10 @@ const ClosingStatement = () => {
           viewport={{ once: true }}
         >
           <Link
-            href="/contact"
-            className="inline-flex items-center gap-3 border border-alira text-alira text-[11px] tracking-[0.25em] uppercase font-poppins px-10 py-4 hover:bg-alira hover:text-[#2C1F0E] transition-all duration-300"
+            href="https://wa.me/6282326931783"
+            className="inline-flex items-center gap-3 border border-alira rounded-md bg-alira text-black text-[11px] tracking-[0.25em] uppercase font-poppins px-10 py-4 hover:bg-white hover:text-alira transition-all duration-300"
           >
-            Hubungi Kami
+            Ajukan Konsultasi Gratis
           </Link>
         </motion.div>
 

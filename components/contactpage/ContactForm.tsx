@@ -109,9 +109,9 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-fit bg-alira px-6 py-2.5 rounded-md mt-4 transition-all cursor-pointer hover:bg-white hover:border-2 hover:border-alira disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-fit border bg-alira px-6 py-2.5 rounded-md mt-4 transition-all cursor-pointer hover:bg-white hover:border-alira hover:text-alira disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            <span className="text-sm font-semibold">{loading ? "Mengirim..." : "Kirim Pesan"}</span>
+            <span className="text-sm">{loading ? "Mengirim..." : "Kirim Pesan"}</span>
           </button>
         </div>
       </form>
