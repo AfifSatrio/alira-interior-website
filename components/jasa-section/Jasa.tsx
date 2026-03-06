@@ -47,7 +47,7 @@ const Jasa = () => {
           variants={itemVariants}
           className="lg:text-4xl text-3xl font-poppins font-black lg:ml-20 mx-10 lg:mx-0"
         >
-          Merancang Pengalaman, Bukan Sekadar Ruang
+          Menghadirkan Solusi Interior, Bukan Sekedar Membangun Ruang
         </motion.h1>
 
         <motion.span
