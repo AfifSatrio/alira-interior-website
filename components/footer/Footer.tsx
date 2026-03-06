@@ -17,21 +17,20 @@ const Footer = ({ settings }: { settings: Settings }) => {
                         href="https://www.instagram.com/alira.interior?igsh=MXJudW90bDJkcDkzaw=="
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center gap-2.5 w-fit"
-                        >
-                        <span className="w-8 h-8 rounded-full border bg-[#D2AB67]  flex items-center justify-center group-hover:border-[#D2AB67]  group-hover:bg-alira/10 transition-all duration-300">
-                            <i className="ri-instagram-line text-sm text-white group-hover:text-[#D2AB67] transition-colors duration-300" />
-                        </span>
+                        className="w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                        style={{
+                            background: "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)"
+                        }}
+                    >
+                        <i className="ri-instagram-line text-sm text-white" />
                     </a>
                     <a
                         href="https://www.tiktok.com/@alirainterior_07?_r=1&_t=ZS-94R2dTWY4rS"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center gap-2.5 w-fit"
-                        >
-                        <span className="w-8 h-8 rounded-full border bg-[#D2AB67]  flex items-center justify-center group-hover:border-[#D2AB67]  group-hover:bg-alira/10 transition-all duration-300">
-                            <i className="ri-tiktok-fill text-sm text-white group-hover:text-[#D2AB67] transition-colors duration-300" />
-                        </span>
+                        className="w-8 h-8 rounded-full bg-black flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                    >
+                        <i className="ri-tiktok-fill text-sm text-white" />
                     </a>
                 </div>
             </div>
