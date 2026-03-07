@@ -93,7 +93,7 @@ const AboutPageContent = () => {
 
                 <div className="flex flex-col items-center">
                     <h2 className="text-3xl lg:text-4xl font-black font-poppins">
-                    <Counter target={50} />
+                    <Counter target={5000} />
                     </h2>
                     <span className="font-poppins font-medium text-sm lg:text-base">
                     Proyek Selesai
