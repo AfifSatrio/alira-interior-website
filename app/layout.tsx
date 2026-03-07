@@ -65,6 +65,7 @@ export default async function RootLayout({
           href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
           rel="stylesheet"
         />
+        <link rel="icon" type="image/x-icon" href="https://www.alirainterior.com/favicon.ico"/>
       </head>
       <body
         className={`${dm_serif.variable} ${poppins.variable} antialiased`}
