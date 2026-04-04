@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="40" fill="#A0856B"/>
+  <!-- Body -->
+  <ellipse cx="40" cy="58" rx="20" ry="14" fill="#6B4F35"/>
+  <!-- Head -->
+  <circle cx="40" cy="30" r="14" fill="#D4956A"/>
+  <!-- Hair -->
+  <path d="M26 28 Q27 16 40 15 Q53 16 54 28 Q52 20 40 19 Q28 20 26 28Z" fill="#1A0F00"/>
+</svg>

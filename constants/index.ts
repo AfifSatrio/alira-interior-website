@@ -23,6 +23,49 @@ export const processSteps = [
     {id: 6, title: "Produksi",image:"/photos/product.webp", desc: "Setelah penawaran harga disepakati dan terjadi kesepakatan dengan tim kami, langkah selanjutnya adalah memulai proses produksi. Kami akan merealisasikan desain-desain yang telah mendapat persetujuan dari klien. Dengan demikian, kami berkomitmen untuk memberikan hasil yang memuaskan dan mewujudkan seluruh keinginan serta kebutuhan klien sesuai dengan harapan mereka terhadap interior." },
 ]
 
+export const testimonials = [
+    {
+        id: 1,
+        name: "Budi Santoso",
+        role: "Direktur Utama",
+        company: "PT. Maju Bersama",
+        avatar: "/testimonials/client-1.svg",
+        quote: "Alira Interior berhasil menghadirkan kantor kami menjadi ruang kerja yang modern dan produktif. Tim mereka sangat profesional, detail dalam setiap pengerjaan, dan hasilnya jauh melampaui ekspektasi kami.",
+    },
+    {
+        id: 2,
+        name: "Sari Dewi",
+        role: "Pemilik",
+        company: "Sari's Café & Bistro",
+        avatar: "/testimonials/client-2.svg",
+        quote: "Desain kafe kami sekarang jadi magnet pelanggan baru. Alira Interior benar-benar memahami konsep yang saya inginkan dan mewujudkannya dengan sempurna. Pelanggan selalu memuji suasana tempatnya!",
+    },
+    {
+        id: 3,
+        name: "Hendra Gunawan",
+        role: "General Manager",
+        company: "Hotel Arya Residence",
+        avatar: "/testimonials/client-3.svg",
+        quote: "Pengerjaan renovasi lobby dan kamar hotel kami selesai tepat waktu dengan kualitas premium. Alira Interior membuktikan bahwa mereka mampu menangani proyek skala besar dengan standar hospitality yang tinggi.",
+    },
+    {
+        id: 4,
+        name: "Rina Maharani",
+        role: "Kepala Sekolah",
+        company: "SMA Nusantara Global",
+        avatar: "/testimonials/client-4.svg",
+        quote: "Lingkungan belajar yang nyaman dan estetis terbukti meningkatkan semangat belajar siswa kami. Alira Interior merancang setiap sudut sekolah dengan penuh perhatian dan pemahaman terhadap kebutuhan pendidikan.",
+    },
+    {
+        id: 5,
+        name: "Dian Permata",
+        role: "Pemilik",
+        company: "Permata Skin Clinic",
+        avatar: "/testimonials/client-5.svg",
+        quote: "Klinik kami kini tampil lebih elegan dan menenangkan. Pasien sering berkomentar betapa nyaman dan bersihnya interior klinik kami. Alira Interior benar-benar paham kebutuhan ruang kesehatan.",
+    },
+]
+
 export const jasaAlira = [
     {id: 1, item: "Kantor dan Corporate Space", image: ""},
     {id: 2, item: "Apartemen dan Hunian", image: ""},

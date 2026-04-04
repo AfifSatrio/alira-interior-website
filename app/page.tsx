@@ -8,6 +8,7 @@ import BlogSection from "@/components/blog-section/BlogSection"
 import { sanityClient } from "@/lib/sanity.client"
 import { highlightPortfolioQuery, siteSettingsQuery } from "@/lib/queries"
 import ClosingStatement from "@/components/aboutpage/ClosingStatement"
+import TestimonialSection from "@/components/testimonial-section/TestimonialSection"
 
 export default async function page() {
   const projects = await sanityClient.fetch(highlightPortfolioQuery)
@@ -21,6 +22,7 @@ export default async function page() {
       <ValueSection />
       <ProcessSection />
       <ClientSection />
+      <TestimonialSection />
       <BlogSection />
       <ClosingStatement />
     </>
