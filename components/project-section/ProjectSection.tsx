@@ -5,7 +5,7 @@ import ProjectHighlight from "./ProjectHighlight"
 
 export const revalidate = 60
 
-const ProjectSection = async () => {
+const ProjectSection = async ({ hideCta }: { hideCta?: boolean } = {}) => {
   const projects = await sanityClient.fetch(highlightPortfolioQuery)
 
   return (
@@ -26,14 +26,16 @@ const ProjectSection = async () => {
         <ProjectHighlight projects={projects} />
       </div>
 
-      <div className="w-full flex justify-center mt-10">
-        <Link
-          href={"/projects"}
-          className="lg:px-10 px-8 lg:py-3 py-2 bg-white text-black rounded-full text-sm lg:text-base font-poppins font-bold hover:bg-black hover:text-white transition duration-300"
-        >
-          Lihat Semua Proyek
-        </Link>
-      </div>
+      {!hideCta && (
+        <div className="w-full flex justify-center mt-10">
+          <Link
+            href={"/projects"}
+            className="lg:px-10 px-8 lg:py-3 py-2 bg-white text-black rounded-full text-sm lg:text-base font-poppins font-bold hover:bg-black hover:text-white transition duration-300"
+          >
+            Lihat Semua Proyek
+          </Link>
+        </div>
+      )}
     </section>
   )
 }

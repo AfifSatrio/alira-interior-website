@@ -32,7 +32,7 @@ const rightCards = [
   },
 ]
 
-const Jasa = () => {
+const Jasa = ({ hideCta }: { hideCta?: boolean } = {}) => {
   return (
     <motion.section
       variants={containerVariants}
@@ -118,17 +118,19 @@ const Jasa = () => {
       </div>
 
       {/* CTA Button — di luar grid */}
-      <motion.div
-        variants={itemVariants}
-        className="flex items-center justify-center mt-10 mx-10"
-      >
-        <Link
-          href="/about"
-          className="lg:px-10 px-8 lg:py-3 py-2 bg-[#D2AB67] text-white rounded-md text-sm lg:text-base font-poppins hover:bg-white border hover:border-[#D2AB67] hover:text-[#D2AB67] transition duration-300"
+      {!hideCta && (
+        <motion.div
+          variants={itemVariants}
+          className="flex items-center justify-center mt-10 mx-10"
         >
-          Selengkapnya Tentang Alira
-        </Link>
-      </motion.div>
+          <Link
+            href="/about"
+            className="lg:px-10 px-8 lg:py-3 py-2 bg-[#D2AB67] text-white rounded-md text-sm lg:text-base font-poppins hover:bg-white border hover:border-[#D2AB67] hover:text-[#D2AB67] transition duration-300"
+          >
+            Selengkapnya Tentang Alira
+          </Link>
+        </motion.div>
+      )}
     </motion.section>
   )
 }

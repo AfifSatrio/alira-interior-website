@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/header/Navbar";
-import Footer from "@/components/footer/Footer";
 import { sanityClient } from "@/lib/sanity.client";
-import { seoSettingsQuery, siteSettingsQuery } from "@/lib/queries";
+import { seoSettingsQuery } from "@/lib/queries";
 import { urlFor } from "@/lib/sanity.image";
-import WhatsappFloat from "@/components/WhatsappFloat";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -22,18 +19,16 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export async function generateMetadata(): Promise<Metadata>{
-  
+export async function generateMetadata(): Promise<Metadata> {
   const seoSettings = await sanityClient.fetch(seoSettingsQuery)
   const favicon = seoSettings?.seoImage ? urlFor(seoSettings.seoImage).width(64).height(64).url() : undefined
   const ogImage = seoSettings?.seoImage ? urlFor(seoSettings.seoImage).width(1200).height(630).url() : undefined
 
   return {
-    title:  {
+    title: {
       template: `%s`,
       default: seoSettings?.seoTitle ?? 'Website',
     },
-
     description: seoSettings?.seoDesc,
     icons: {
       icon: favicon
@@ -52,12 +47,11 @@ export async function generateMetadata(): Promise<Metadata>{
   }
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const settings = await sanityClient.fetch(siteSettingsQuery)
   return (
     <html lang="en">
       <head>
@@ -65,17 +59,12 @@ export default async function RootLayout({
           href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
           rel="stylesheet"
         />
-        <link rel="icon" type="image/x-icon" href="https://www.alirainterior.com/favicon.ico"/>
+        <link rel="icon" type="image/x-icon" href="https://www.alirainterior.com/favicon.ico" />
       </head>
-      <body
-        className={`${dm_serif.variable} ${poppins.variable} antialiased`}
-      >
-      <Navbar />
+      <body className={`${dm_serif.variable} ${poppins.variable} antialiased`}>
         {children}
         <Analytics />
         <SpeedInsights />
-      <Footer settings={settings}/>
-      <WhatsappFloat phone={"6282326931783"} />
       </body>
     </html>
   );

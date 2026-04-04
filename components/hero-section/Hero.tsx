@@ -18,7 +18,7 @@ interface Settings {
   backgroundImage: any
 }
 
-const Hero = ({ projects, settings }: { projects: Project[]; settings:Settings }) => {
+const Hero = ({ projects, settings, hideCta }: { projects: Project[]; settings:Settings; hideCta?: boolean }) => {
   return (
     <div className="relative h-screen w-full bg-cover bg-center overflow-hidden">
       {settings?.backgroundImage && (
@@ -62,18 +62,20 @@ const Hero = ({ projects, settings }: { projects: Project[]; settings:Settings }
           <ProyekPreview projects={projects}/>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
-        >
-          <Link
-            className="mt-8 lg:px-10 px-8 lg:py-3 py-2 bg-white text-black rounded-full text-sm lg:text-base font-poppins font-bold hover:bg-black hover:text-white transition duration-300 cursor-pointer inline-block"
-            href={"/projects"}
+        {!hideCta && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
           >
-            Lihat Semua Proyek
-          </Link>
-        </motion.div>
+            <Link
+              className="mt-8 lg:px-10 px-8 lg:py-3 py-2 bg-white text-black rounded-full text-sm lg:text-base font-poppins font-bold hover:bg-black hover:text-white transition duration-300 cursor-pointer inline-block"
+              href={"/projects"}
+            >
+              Lihat Semua Proyek
+            </Link>
+          </motion.div>
+        )}
       </div>
     </div>
   )
