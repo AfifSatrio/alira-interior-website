@@ -48,7 +48,7 @@ const starVariants = {
     transition: {
       delay: i * 0.08,
       duration: 0.35,
-      ease: "backOut",
+      ease: "backOut" as const,
     },
   }),
 }
