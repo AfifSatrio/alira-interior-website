@@ -38,13 +38,24 @@ const Footer = ({ settings }: { settings: Settings }) => {
                 <h1 className="font-bold text-lg">Punya Pertanyaan?</h1>
                 <span className="font-light text-sm">Sampaikan kepada kami atau minta konsultasi seputar desain interior</span>
             </div>
-            <div className="flex flex-col font-poppins gap-2">
-                <h1 className="font-bold text-lg">
-                    Hubungi Kami
-                </h1>
-                <span className="font-light text-sm">{settings?.whatsappNumber}</span>
-                <span className="font-light text-sm">{settings?.email}</span>
-                <span className="font-light text-sm">{settings?.address}</span>
+            <div className="flex flex-col font-poppins gap-6">
+                <div className="flex flex-col gap-2">
+                    <h1 className="font-bold text-lg">
+                        Kantor Pusat
+                    </h1>
+                    <span className="font-light text-sm">{settings?.whatsappNumber}</span>
+                    <span className="font-light text-sm">{settings?.email}</span>
+                    <span className="font-light text-sm">{settings?.address}</span>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <h1 className="font-bold text-lg">
+                        Kantor Cabang
+                    </h1>
+                    <span className="font-light text-sm">(+62) 813-5703-0991 (Ratna Wulan Agustusn)</span>
+                    <span className="font-light text-sm">
+                        Jalan Mangga Besar Gang Mangga I, RT.4/RW.5, Kidul Dalem, Bangil No.07, Kab. Pasuruan, Jawa Timur 67153
+                    </span>
+                </div>
             </div>
         </div>
         <span className="font-light md:text-sm font-poppins mt-10 text-center mb-5 text-xs">©2026 Copyright Alira Interior. All rights Reserved.</span>
