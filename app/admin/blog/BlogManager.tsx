@@ -8,14 +8,6 @@ import ImageUploader from "@/components/admin/ImageUploader"
 import RichTextEditor from "@/components/admin/RichTextEditor"
 import { motion } from "framer-motion"
 
-const emptyContent = JSON.stringify([
-  {
-    _type: "block",
-    style: "normal",
-    children: [{ _type: "span", text: "" }],
-  },
-])
-
 type BlogItem = {
   id: string
   title: string
@@ -31,33 +23,38 @@ export default function BlogManager({ blogs }: { blogs: BlogItem[] }) {
   const [isPending, setIsPending] = useState(false)
   const [mainImageUrl, setMainImageUrl] = useState("")
   const [editId, setEditId] = useState<string | null>(null)
-  const [titleValue, setTitleValue] = useState("")
-  const [contentValue, setContentValue] = useState(emptyContent)
+  const [content, setContent] = useState("")
   
   const formRef = useRef<HTMLFormElement>(null)
   const titleRef = useRef<HTMLInputElement>(null)
+  const slugRef = useRef<HTMLInputElement>(null)
   const authorRef = useRef<HTMLInputElement>(null)
+  const publishedAtRef = useRef<HTMLInputElement>(null)
+  const featuredRef = useRef<HTMLSelectElement>(null)
 
   const resetForm = () => {
     setEditId(null)
     setMainImageUrl("")
-    setTitleValue("")
-    setContentValue(emptyContent)
+    setContent("")
     if (formRef.current) formRef.current.reset()
   }
 
   const handleEdit = (blog: BlogItem) => {
     setEditId(blog.id)
     setMainImageUrl(blog.mainImage)
-    setTitleValue(blog.title)
     if (titleRef.current) titleRef.current.value = blog.title
+    if (slugRef.current) slugRef.current.value = blog.slug
     if (authorRef.current) authorRef.current.value = blog.author
+    if (publishedAtRef.current) publishedAtRef.current.value = new Date(blog.publishedAt).toISOString().split('T')[0]
+    if (featuredRef.current) featuredRef.current.value = blog.featured.toString()
+    
     try {
-      setContentValue(typeof blog.content === "string" ? blog.content : JSON.stringify(blog.content))
-    } catch {
-      setContentValue(emptyContent)
+      setContent(typeof blog.content === "string" ? blog.content : JSON.stringify(blog.content, null, 2))
+    } catch (e) {
+      setContent("")
     }
-    document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" })
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -65,6 +62,9 @@ export default function BlogManager({ blogs }: { blogs: BlogItem[] }) {
     setIsPending(true)
     const formData = new FormData(e.currentTarget)
     formData.append("mainImage", mainImageUrl)
+    // The RichTextEditor includes a hidden input named "content" that contains the value,
+    // but just to be absolutely certain we'll append it.
+    formData.set("content", content)
     
     try {
       if (editId) {
@@ -73,7 +73,7 @@ export default function BlogManager({ blogs }: { blogs: BlogItem[] }) {
         await createBlog(formData)
       }
       resetForm()
-    } catch {
+    } catch(err) {
       alert("Failed to save blog. Slug must be unique.")
     } finally {
       setIsPending(false)
@@ -116,13 +116,26 @@ export default function BlogManager({ blogs }: { blogs: BlogItem[] }) {
                 <input 
                   ref={titleRef}
                   name="title" 
-                  value={titleValue}
-                  onChange={(event) => setTitleValue(event.target.value)}
                   className="w-full border border-[#e2dcd5] rounded-xl p-3 focus:outline-none focus:border-[#B8946A] focus:ring-1 focus:ring-[#B8946A] transition-all bg-[#F9F6F1]" 
                   placeholder="e.g. 5 Design Trends for 2026"
                   required 
                 />
               </div>
+              <div>
+                <label className="block text-[13px] font-medium text-[#7A6652] mb-2">Slug (URL friendly)</label>
+                <input 
+                  ref={slugRef}
+                  name="slug" 
+                  className="w-full border border-[#e2dcd5] rounded-xl p-3 focus:outline-none focus:border-[#B8946A] focus:ring-1 focus:ring-[#B8946A] transition-all bg-[#F9F6F1]" 
+                  placeholder="e.g. 5-design-trends-2026"
+                  required 
+                  pattern="[a-z0-9-]+" 
+                  title="Only lowercase letters, numbers, and hyphens" 
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div>
                 <label className="block text-[13px] font-medium text-[#7A6652] mb-2">Author</label>
                 <input 
@@ -133,6 +146,28 @@ export default function BlogManager({ blogs }: { blogs: BlogItem[] }) {
                   required 
                 />
               </div>
+              <div>
+                <label className="block text-[13px] font-medium text-[#7A6652] mb-2">Publish Date</label>
+                <input 
+                  ref={publishedAtRef}
+                  type="date" 
+                  name="publishedAt" 
+                  defaultValue={new Date().toISOString().split('T')[0]} 
+                  className="w-full border border-[#e2dcd5] rounded-xl p-3 focus:outline-none focus:border-[#B8946A] focus:ring-1 focus:ring-[#B8946A] transition-all bg-[#F9F6F1]" 
+                  required 
+                />
+              </div>
+              <div>
+                <label className="block text-[13px] font-medium text-[#7A6652] mb-2">Featured?</label>
+                <select 
+                  ref={featuredRef}
+                  name="featured" 
+                  className="w-full border border-[#e2dcd5] rounded-xl p-3 focus:outline-none focus:border-[#B8946A] focus:ring-1 focus:ring-[#B8946A] transition-all bg-[#F9F6F1]"
+                >
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -142,13 +177,12 @@ export default function BlogManager({ blogs }: { blogs: BlogItem[] }) {
               value={mainImageUrl} 
               onChange={setMainImageUrl} 
               className="flex-1"
-              minHeight={168}
             />
           </div>
 
           <div className="lg:col-span-12">
             <label className="block text-[13px] font-medium text-[#7A6652] mb-2">Content</label>
-            <RichTextEditor value={contentValue} onChange={setContentValue} />
+            <RichTextEditor value={content} onChange={setContent} />
           </div>
 
           <div className="flex items-center border-t border-[#ede8e2] pt-7 lg:col-span-12">
