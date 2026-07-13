@@ -3,11 +3,11 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import ProyekPreview from "./ProyekPreview"
-import { urlFor } from "@/lib/sanity.image"
+
 import Image from "next/image"
 
 interface Project {
-  _id: string
+  id: string
   title: string
   coverImage: any
 }
@@ -22,7 +22,7 @@ const Hero = ({ projects, settings, hideCta }: { projects: Project[]; settings:S
   return (
     <div className="relative h-screen w-full bg-cover bg-center overflow-hidden">
       {settings?.backgroundImage && (
-        <Image src={urlFor(settings.backgroundImage).width(1920).quality(80).format("webp").url()} alt="Hero Bg" fill priority className="object-cover"/>
+        <Image src={settings.backgroundImage} alt="Hero Bg" fill priority className="object-cover"/>
       )}
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">

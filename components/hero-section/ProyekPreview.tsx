@@ -2,10 +2,10 @@
 
 import Image from "next/image"
 import { motion, easeInOut } from "framer-motion"
-import { urlFor } from "@/lib/sanity.image"
+
 
 interface Project {
-  _id: string
+  id: string
   title: string
   coverImage: any
 }
@@ -39,14 +39,14 @@ const ProyekPreview = ({ projects }: { projects: Project[] }) => {
       {/* Desktop */}
       {projects.map((project) => (
         <motion.div
-          key={project._id}
+          key={project.id}
           variants={itemVariants}
           className="hidden lg:block"
           whileHover={{ scale: 0.95 }}
           transition={{ duration: 0.3 }}
         >
           <Image
-            src={urlFor(project.coverImage).width(200).height(120).fit("crop").url()}
+            src={project.coverImage}
             alt={project.title}
             width={80}
             height={40}
@@ -59,14 +59,14 @@ const ProyekPreview = ({ projects }: { projects: Project[] }) => {
       {/* Mobile */}
       {projects.slice(0, 3).map((project) => (
         <motion.div
-          key={project._id}
+          key={project.id}
           variants={itemVariants}
           className="lg:hidden"
           whileHover={{ scale: 0.95 }}
           transition={{ duration: 0.3 }}
         >
           <Image
-            src={urlFor(project.coverImage).width(200).height(120).fit("crop").url()}
+            src={project.coverImage}
             alt={project.title}
             width={80}
             height={40}

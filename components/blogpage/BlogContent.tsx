@@ -1,9 +1,10 @@
 import BlogContentClient from "./BlogContentClient"
-import { sanityClient } from "@/lib/sanity.client"
-import { blogquery } from "@/lib/queries"
+import prisma from "@/lib/prisma"
 
 const BlogContent = async () => {
-  const blogs = await sanityClient.fetch(blogquery)
+  const blogs = await prisma.blog.findMany({
+    orderBy: { publishedAt: 'desc' }
+  })
 
   return <BlogContentClient blogs={blogs} />
 }

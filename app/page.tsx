@@ -8,19 +8,23 @@ import ProjectSection from "@/components/project-section/ProjectSection"
 import ValueSection from "@/components/value-section/ValueSection"
 import ClientSection from "@/components/client-section/ClientSection"
 import BlogSection from "@/components/blog-section/BlogSection"
-import { sanityClient } from "@/lib/sanity.client"
-import { highlightPortfolioQuery, siteSettingsQuery } from "@/lib/queries"
+import prisma from "@/lib/prisma"
 import ClosingStatement from "@/components/aboutpage/ClosingStatement"
 import TestimonialSection from "@/components/testimonial-section/TestimonialSection"
 
 export default async function HomePage() {
-  const projects = await sanityClient.fetch(highlightPortfolioQuery)
-  const settings = await sanityClient.fetch(siteSettingsQuery)
+  const projects = await prisma.portfolio.findMany({
+    where: { featured: true },
+    take: 5,
+  })
+  const settings = await prisma.siteSettings.findUnique({
+    where: { id: 1 },
+  })
 
   return (
     <>
       <Navbar />
-      <Hero projects={projects} settings={settings} />
+      <Hero projects={projects} settings={settings!} />
       <Jasa />
       <ProjectSection />
       <ValueSection />
@@ -29,7 +33,7 @@ export default async function HomePage() {
       <TestimonialSection />
       <BlogSection />
       <ClosingStatement />
-      <Footer settings={settings} />
+      <Footer settings={settings!} />
       <WhatsappFloat phone={"6282326931783"} />
     </>
   )

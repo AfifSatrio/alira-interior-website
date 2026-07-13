@@ -3,10 +3,10 @@
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
-import { urlFor } from "@/lib/sanity.image"
+
 
 export interface ServiceItem {
-  _id: string
+  id: string
   item: string
   image: any
 }
@@ -65,10 +65,10 @@ const LayananSelectionClient = ({ services }: { services: ServiceItem[] }) => {
 
       <motion.div className="lg:w-2/5 flex flex-col justify-between divide-y divide-gray-100">
         {services.map((service, index) => {
-          const isActive = selected._id === service._id
+          const isActive = selected.id === service.id
           return (
             <motion.button
-              key={service._id}
+              key={service.id}
               variants={itemVariants}
               onClick={() => setSelected(service)}
               className={`group flex items-center justify-between text-left px-2 py-4 transition-colors duration-200 cursor-pointer ${
@@ -101,7 +101,7 @@ const LayananSelectionClient = ({ services }: { services: ServiceItem[] }) => {
         <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#F0EAE2] top-6">
           <AnimatePresence mode="wait">
             <motion.div
-              key={selected._id}
+              key={selected.id}
               initial={{ opacity: 0, scale: 1.04 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}
@@ -110,7 +110,7 @@ const LayananSelectionClient = ({ services }: { services: ServiceItem[] }) => {
             >
               {selected.image ? (
                 <Image
-                  src={urlFor(selected.image).width(1200).height(675).format("webp").url()}
+                  src={selected.image}
                   alt={layananOptions[selected.item] ?? selected.item}
                   fill
                   className="object-cover"

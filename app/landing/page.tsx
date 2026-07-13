@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
-import { sanityClient } from "@/lib/sanity.client"
-import { highlightPortfolioQuery, siteSettingsQuery } from "@/lib/queries"
+import prisma from "@/lib/prisma"
 import LandingNavbar from "@/components/header/LandingNavbar"
 import Footer from "@/components/footer/Footer"
 import WhatsappFloat from "@/components/WhatsappFloat"
@@ -27,15 +26,20 @@ export const metadata: Metadata = {
 }
 
 export default async function LandingPage() {
-  const projects = await sanityClient.fetch(highlightPortfolioQuery)
-  const settings = await sanityClient.fetch(siteSettingsQuery)
+  const projects = await prisma.portfolio.findMany({
+    where: { featured: true },
+    take: 5,
+  })
+  const settings = await prisma.siteSettings.findUnique({
+    where: { id: 1 },
+  })
 
   return (
     <>
       <LandingNavbar />
 
       <section id="hero">
-        <Hero projects={projects} settings={settings} hideCta />
+        <Hero projects={projects} settings={settings!} hideCta />
       </section>
 
       <section id="tentang">
@@ -71,7 +75,7 @@ export default async function LandingPage() {
         <ClosingStatement />
       </section>
 
-      <Footer settings={settings} />
+      <Footer settings={settings!} />
       <WhatsappFloat phone={"6282326931783"} />
     </>
   )

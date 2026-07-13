@@ -1,8 +1,8 @@
-import { urlFor } from "@/lib/sanity.image"
 import Image from "next/image"
 
 interface Blog {
   title: string
+  publishedAt: Date
   mainImage: any
 }
 
@@ -12,11 +12,7 @@ const BlogHeader = ({ blog }: { blog: Blog }) => {
       
       {blog?.mainImage && (
         <Image
-          src={urlFor(blog.mainImage)
-            .width(1920)
-            .quality(80)
-            .format("webp")
-            .url()}
+          src={blog.mainImage}
           alt={blog.title}
           fill
           priority

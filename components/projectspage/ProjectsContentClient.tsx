@@ -2,10 +2,10 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { urlFor } from "@/lib/sanity.image"
+
 
 interface Project {
-  _id: string
+  id: string
   title: string
   coverImage: any
 }
@@ -23,7 +23,7 @@ const ProjectsContent = ({ projects }: { projects: Project[] }) => {
       >
         {projects.map((project) => (
           <motion.div
-            key={project._id}
+            key={project.id}
             variants={{
               hidden: { opacity: 0, y: 50, scale: 0.95 },
               visible: {
@@ -51,12 +51,7 @@ const ProjectsContent = ({ projects }: { projects: Project[] }) => {
               className="absolute inset-0"
             >
               <Image
-                src={urlFor(project.coverImage)
-                  .width(800)
-                  .height(600)
-                  .fit("crop")
-                  .format("webp")
-                  .url()}
+                src={project.coverImage}
                 alt={project.title}
                 fill
                 className="object-cover transition duration-500 group-hover:brightness-75"

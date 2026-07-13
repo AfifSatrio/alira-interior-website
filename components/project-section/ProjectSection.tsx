@@ -1,12 +1,14 @@
 import Link from "next/link"
-import { sanityClient } from "@/lib/sanity.client"
-import { highlightPortfolioQuery } from "@/lib/queries"
+import prisma from "@/lib/prisma"
 import ProjectHighlight from "./ProjectHighlight"
 
 export const revalidate = 60
 
 const ProjectSection = async ({ hideCta }: { hideCta?: boolean } = {}) => {
-  const projects = await sanityClient.fetch(highlightPortfolioQuery)
+  const projects = await prisma.portfolio.findMany({
+    where: { featured: true },
+    take: 5
+  })
 
   return (
     <section className="mx-auto py-24 bg-alira">

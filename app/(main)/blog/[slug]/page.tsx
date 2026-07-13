@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import BlogHeader from '@/components/blog-content/BlogHeader'
 import BlogContent from '@/components/blog-content/BlogContent'
-import { sanityClient } from '@/lib/sanity.client'
-import { detailBlogQuery } from '@/lib/queries'
+import prisma from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import BlogSection from '@/components/blog-section/BlogSection'
-import { urlFor } from '@/lib/sanity.image'
 
 export async function generateMetadata({
   params,
@@ -14,26 +12,24 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
 
-  const blog = await sanityClient.fetch(detailBlogQuery, { slug })
+  const blog = await prisma.blog.findUnique({ where: { slug } })
 
   if (!blog) return {}
 
-  const ogImage = blog?.mainImage
-    ? urlFor(blog.mainImage).width(1200).height(630).url()
-    : undefined
+  const ogImage = blog.mainImage || undefined
 
   return {
     title: blog.title,
-    description: blog.excerpt,
+    description: "Read this blog post on Alira Interior",
     openGraph: {
       title: blog.title,
-      description: blog.excerpt,
+      description: "Read this blog post on Alira Interior",
       images: ogImage ? [ogImage] : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: blog.title,
-      description: blog.excerpt,
+      description: "Read this blog post on Alira Interior",
       images: ogImage ? [ogImage] : [],
     },
   }
@@ -46,7 +42,7 @@ export default async function Page({
 }) {
   const { slug } = await params
 
-  const blog = await sanityClient.fetch(detailBlogQuery, { slug })
+  const blog = await prisma.blog.findUnique({ where: { slug } })
 
   if (!blog) return notFound()
 

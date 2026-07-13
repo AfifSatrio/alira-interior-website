@@ -49,7 +49,7 @@ const ClosingStatement = () => {
         className="absolute top-8 left-8 text-[12rem] leading-none text-alira/5 select-none font-serif pointer-events-none"
         aria-hidden
       >
-        "
+        &quot;
       </span>
 
       <div className="relative max-w-4xl mx-auto text-center">

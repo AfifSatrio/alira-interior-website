@@ -1,9 +1,8 @@
-import { siteSettingsQuery } from "@/lib/queries"
-import { sanityClient } from "@/lib/sanity.client"
 import ContactPageClient from "./ContactPageClient"
+import prisma from "@/lib/prisma"
 
 const ContactPageContent = async () => {
-    const contact = await sanityClient.fetch(siteSettingsQuery)
+    const contact = await prisma.siteSettings.findUnique({ where: { id: 1 } })
   return <ContactPageClient contact = {contact} />
 }
 

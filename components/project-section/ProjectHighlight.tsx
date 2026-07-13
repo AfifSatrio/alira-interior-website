@@ -5,13 +5,13 @@ import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { urlFor } from "@/lib/sanity.image"
+
 
 interface Project {
   [x: string]: any
-  _id: string
+  id: string
   title: string
-  image: string
+  coverImage: string
 }
 
 const ProjectHighlight = ({ projects }: {projects: Project[] }) => {
@@ -54,7 +54,7 @@ const ProjectHighlight = ({ projects }: {projects: Project[] }) => {
             const isActive = index === selectedIndex
 
             return (
-              <div key={project._id} className="flex-[0_0_33.333%] px-2">
+              <div key={project.id} className="flex-[0_0_33.333%] px-2">
                 <motion.div
                   animate={{
                     scale: isActive ? 1 : 0.85,
@@ -64,7 +64,7 @@ const ProjectHighlight = ({ projects }: {projects: Project[] }) => {
                   className="relative lg:w-180 w-100 lg:h-100 h-50 rounded-xl overflow-hidden shadow-2xl"
                 >
                   <Image
-                    src={urlFor(project.coverImage).url()}
+                    src={project.coverImage}
                     alt={project.title}
                     fill
                     className="object-cover"

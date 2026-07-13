@@ -5,18 +5,45 @@ import Image from "next/image"
 import { Clock } from "lucide-react"
 import Link from "next/link"
 import { easeInOut, motion } from "framer-motion"
-import { urlFor } from "@/lib/sanity.image"
+
 import { format } from "date-fns"
 import { id } from "date-fns/locale"
-import { PortableText } from "next-sanity"
+import { PortableText, type PortableTextComponents } from "@portabletext/react"
+import type { ReactNode } from "react"
 
 interface Blog {
-  _id: string
+  id: string
   title: string
-  slug: { current: string }
-  content: any
-  mainImage: any
-  publishedAt: string
+  slug: string
+  content: unknown
+  mainImage: string
+  publishedAt: Date
+}
+
+const previewComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    h1: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    h2: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    h3: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    h4: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    h5: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    h6: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    blockquote: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+  },
+  marks: {
+    underline: ({ children }: { children?: ReactNode }) => <span>{children}</span>,
+    "font-small": ({ children }: { children?: ReactNode }) => <span>{children}</span>,
+    "font-large": ({ children }: { children?: ReactNode }) => <span>{children}</span>,
+  },
+  list: {
+    bullet: ({ children }: { children?: ReactNode }) => <span>{children}</span>,
+    number: ({ children }: { children?: ReactNode }) => <span>{children}</span>,
+  },
+  listItem: {
+    bullet: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+    number: ({ children }: { children?: ReactNode }) => <span>{children} </span>,
+  },
 }
 
 const containerVariants = {
@@ -51,7 +78,7 @@ const BlogCard = ({ blogs }: { blogs: Blog[] }) => {
     >
       {blogs.map((blog) => (
         <motion.div
-          key={blog._id}
+          key={blog.id}
           variants={itemVariants}
           whileHover={{ y: -6 }}
           transition={{ duration: 0.3 }}
@@ -59,7 +86,7 @@ const BlogCard = ({ blogs }: { blogs: Blog[] }) => {
           <Card className="relative w-full bg-white border-0 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
             <div className="relative w-full h-52 overflow-hidden rounded-t-xl">
                 <Image
-                    src={urlFor(blog.mainImage).width(600).height(400).fit("crop").format("webp").url()}
+                    src={blog.mainImage}
                     alt={blog.title}
                     fill
                     className="object-cover"
@@ -79,12 +106,12 @@ const BlogCard = ({ blogs }: { blogs: Blog[] }) => {
               </CardDescription>
 
               <CardDescription className="line-clamp-2 text-gray-600 text-sm">
-                <PortableText value={blog.content} />
+                <PortableText value={blog.content} components={previewComponents} />
               </CardDescription>
 
               <CardDescription>
                 <Link
-                  href={`/blog/${blog.slug.current}`}
+                  href={`/blog/${blog.slug}`}
                   className="text-sm text-black hover:text-alira hover:underline transition-all font-poppins"
                 >
                   Baca Selengkapnya

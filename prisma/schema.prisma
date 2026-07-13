@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Blog {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  mainImage   String
+  author      String
+  content     Json
+  publishedAt DateTime
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Portfolio {
+  id         String   @id @default(uuid())
+  title      String
+  coverImage String
+  featured   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Client {
+  id         String   @id @default(uuid())
+  clientName String
+  clientLogo String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Service {
+  id        String   @id @default(uuid())
+  item      String   @unique
+  image     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSettings {
+  id              Int     @id @default(1)
+  tagline         String
+  subtagline      String
+  backgroundImage String
+  whatsappNumber  String
+  email           String
+  address         String
+  socialMedia     String?
+  mapUrl          String
+}
+
+model SeoSettings {
+  id       Int    @id @default(1)
+  seoTitle String
+  seoDesc  String
+  seoImage String
+}

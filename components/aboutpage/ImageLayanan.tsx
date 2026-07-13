@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
-import { urlFor } from "@/lib/sanity.image"
+
 import { ServiceItem } from "./LayananDropDown"
 
 const ImageLayanan = ({ selected }: { selected: ServiceItem }) => {
@@ -19,7 +19,7 @@ const ImageLayanan = ({ selected }: { selected: ServiceItem }) => {
         >
           {selected.image ? (
             <Image
-              src={urlFor(selected.image).width(800).format("webp").url()}
+              src={selected.image}
               alt={selected.item}
               fill
               className="object-cover"

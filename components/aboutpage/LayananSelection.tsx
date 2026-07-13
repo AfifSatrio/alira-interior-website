@@ -1,9 +1,8 @@
-import { sanityClient } from '@/lib/sanity.client'
 import LayananSelectionClient from './LayananSelectionClient'
-import { serviceQuery } from '@/lib/queries'
+import prisma from "@/lib/prisma"
 
 const LayananSelection = async() => {
-    const services = await sanityClient.fetch(serviceQuery)
+    const services = await prisma.service.findMany()
   return (
     <div className='mt-5'>
         <LayananSelectionClient services = {services}/>

@@ -1,14 +1,63 @@
 "use client"
 
-import { PortableText } from "@portabletext/react"
+import { PortableText, type PortableTextComponents } from "@portabletext/react"
 import { format } from "date-fns"
 import { id } from "date-fns/locale"
+import type { ReactNode } from "react"
 
 interface Blog {
   title: string
-  content: any
-  publishedAt: string
+  content: unknown
+  publishedAt: Date
   author?: string
+}
+
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p>{children}</p>,
+    h1: ({ children }) => (
+      <h1 className="text-4xl font-semibold">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-3xl font-semibold">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-2xl font-semibold">
+        {children}
+      </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-xl font-semibold">
+        {children}
+      </h4>
+    ),
+    h5: ({ children }) => (
+      <h5 className="text-lg font-semibold">
+        {children}
+      </h5>
+    ),
+    h6: ({ children }) => (
+      <h6 className="text-base font-semibold uppercase tracking-wide">
+        {children}
+      </h6>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote>{children}</blockquote>
+    ),
+  },
+  marks: {
+    underline: ({ children }: { children?: ReactNode }) => <u>{children}</u>,
+    "font-small": ({ children }: { children?: ReactNode }) => <span className="text-sm">{children}</span>,
+    "font-large": ({ children }: { children?: ReactNode }) => <span className="text-xl">{children}</span>,
+  },
+  list: {
+    bullet: ({ children }: { children?: ReactNode }) => <ul className="list-disc pl-6">{children}</ul>,
+    number: ({ children }: { children?: ReactNode }) => <ol className="list-decimal pl-6">{children}</ol>,
+  },
 }
 
 const BlogContent = ({ blog }: { blog: Blog }) => {
@@ -70,7 +119,7 @@ const BlogContent = ({ blog }: { blog: Blog }) => {
           {blog.title}
         </h1>
         <div className="prose prose-neutral max-w-none text-base leading-relaxed">
-          <PortableText value={blog.content} />
+          <PortableText value={blog.content} components={portableTextComponents} />
         </div>
       </div>
     </div>

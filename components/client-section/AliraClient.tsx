@@ -3,10 +3,10 @@
 import Image from "next/image"
 import { useRef } from "react"
 import { motion, useMotionValue, useAnimationFrame } from "framer-motion"
-import { urlFor } from "@/lib/sanity.image"
+
 
 interface Clients {
-  _id: string
+  id: string
   clientName: string
   clientLogo: any
 }
@@ -97,11 +97,11 @@ const AliraClient = ({ clients }: { clients: Clients[] }) => {
       >
         {duplicatedClients.map((client, index) => (
           <div
-            key={`${client._id}-${index}`}
+            key={`${client.id}-${index}`}
             className="shrink-0 px-12 flex items-center justify-center select-none"
           >
             <Image
-              src={urlFor(client.clientLogo).width(200).format("webp").url()}
+              src={client.clientLogo}
               alt={client.clientName}
               width={100}
               height={50}

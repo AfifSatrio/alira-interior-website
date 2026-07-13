@@ -108,7 +108,7 @@ const TestimonialSection = () => {
 
             {/* Watermark quote */}
             <span className="absolute top-4 right-5 text-7xl leading-none text-alira/8 font-serif select-none pointer-events-none">
-              "
+              &quot;
             </span>
 
             {/* Stars */}
@@ -129,7 +129,7 @@ const TestimonialSection = () => {
 
             {/* Quote text */}
             <p className="font-poppins text-sm text-gray-600 leading-relaxed flex-1">
-              "{item.quote}"
+              &quot;{item.quote}&quot;
             </p>
 
             {/* Divider */}

@@ -1,9 +1,10 @@
-import { portfolioQuery } from '@/lib/queries'
-import { sanityClient } from '@/lib/sanity.client'
 import ProjectsContentClient from './ProjectsContentClient'
+import prisma from "@/lib/prisma"
 
 const ProjectsContent = async () => {
-  const projects = await sanityClient.fetch(portfolioQuery)
+  const projects = await prisma.portfolio.findMany({
+    orderBy: { createdAt: 'asc' }
+  })
   return <ProjectsContentClient projects={projects}/>
 }
 

@@ -1,9 +1,8 @@
-import { sanityClient } from "@/lib/sanity.client"
+import prisma from "@/lib/prisma"
 import AliraClient from "./AliraClient"
-import { aliraClients } from "@/lib/queries"
 
 const ClientSection = async () => {
-  const clients = await sanityClient.fetch(aliraClients)
+  const clients = await prisma.client.findMany()
 
   return (
     <div className="mx-auto flex flex-col border-t-2 border-t-alira pt-10 py-20 justify-center">

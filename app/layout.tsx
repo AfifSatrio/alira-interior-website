@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Poppins } from "next/font/google";
 import "./globals.css";
-import { sanityClient } from "@/lib/sanity.client";
-import { seoSettingsQuery } from "@/lib/queries";
-import { urlFor } from "@/lib/sanity.image";
+import prisma from "@/lib/prisma"
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -20,11 +18,12 @@ const poppins = Poppins({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const seoSettings = await sanityClient.fetch(seoSettingsQuery)
-  const favicon = seoSettings?.seoImage ? urlFor(seoSettings.seoImage).width(64).height(64).url() : undefined
-  const ogImage = seoSettings?.seoImage ? urlFor(seoSettings.seoImage).width(1200).height(630).url() : undefined
+  const seoSettings = await prisma.seoSettings.findUnique({ where: { id: 1 } })
+  const favicon = seoSettings?.seoImage || undefined
+  const ogImage = seoSettings?.seoImage || undefined
 
   return {
+    metadataBase: new URL('https://www.alirainterior.com'),
     title: {
       template: `%s`,
       default: seoSettings?.seoTitle ?? 'Website',
