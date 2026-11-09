@@ -58,10 +58,16 @@ const Footer = ({ settings }: { settings: Settings }) => {
                                 Jalan Mangga Besar Gang Mangga I, RT.4/RW.5, Kidul Dalem, Bangil No.07, Kab. Pasuruan, Jawa Timur 67153
                             </span>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mb-2">
                             <span className="font-medium text-sm">Malang:</span>
                             <span className="font-light text-sm">
                                 Perum.citra graha residence blok C no.2 Karang duren, Pakisaji, Kab.Malang
+                            </span>
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="font-medium text-sm">Bekasi:</span>
+                            <span className="font-light text-sm">
+                                Jl. Kapling H. Nanang 5, Kebalen, Babelan, Bekasi
                             </span>
                         </div>
                     </div>
